@@ -46,22 +46,21 @@ class Settings extends Base
     public function add_option_page()
     {
         if (function_exists('acf_add_options_page')) {
-
-            acf_add_options_page(array(
+            acf_add_options_page([
                 'page_title' => 'MAM Footer CTAs',
                 'menu_title' => 'MAM Footer CTAs',
                 'menu_slug' => 'mam-footer-cta',
                 'capability' => 'edit_posts',
-                'redirect' => false
-            ));
-
+                'icon_url' => 'dashicons-buddicons-groups',
+                'redirect' => false,
+            ]);
         }
     }
 
     public function add_option_page_acf()
     {
-        if (function_exists('acf_add_local_field_group')):
-            $acf = json_decode(file_get_contents(plugins_url( '/assets/admin/acf.json', FOOTER_CTAS_PLUGIN_FILE )), true);
+        if (function_exists('acf_add_local_field_group')) :
+            $acf = json_decode(file_get_contents(plugins_url('/assets/admin/acf.json', FOOTER_CTAS_PLUGIN_FILE)), true);
             acf_add_local_field_group($acf[0]);
 
         endif;
