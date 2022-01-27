@@ -42,24 +42,21 @@ class Templates extends Base
         /**
          * Example code using the get template function with the use of arguments
          */
-        add_action( 'wp_footer', [$this, 'mam_footer_cta']);
+        add_action('wp_footer', [$this, 'addFooterCtas']);
 
     }
 
-    public function mam_footer_cta(){
-
-        if(get_field('mam_footer_ctas_enabled', 'option') == 'Disabled'){
-            return '';
+    /**
+     * if the plugin is enabled in options add the footer ctas to WP Footer
+     *
+     * @since 1.0.0
+     */
+    public function addFooterCtas(): string
+    {
+        if(footer_ctas()->get_status()){
+            return do_shortcode('[mam-footer-ctas]');
         }
-        // init data
-        $toggle_icon = get_field('mam_footer_ctas_toggle_button_icon', 'option');
-        $ctas = get_field('mam_footer_ctas', 'option');
-        $this->get( 'mam-footer-cta-template', null,
-            [
-                'toggle-icon' => $toggle_icon,
-                'ctas' => $ctas,
-            ]
-        );
+        return '';
     }
 
     /**
@@ -67,13 +64,13 @@ class Templates extends Base
      * @url https://github.com/GaryJones/Gamajo-Template-Loader
      *
      * @param string $slug Template slug.
-     * @param string $name Optional. Template variation name. Default null.
+     * @param null $name Optional. Template variation name. Default null.
+     * @param array $args
      * @param bool $load Optional. Whether to load template. Default true.
      * @return string
      * @since 1.0.0
-     *
      */
-    public function get( $slug, $name = null, $args = [], $load = true ): string {
+    public function get(string $slug, $name = null, array $args = [], bool $load = true ): string {
         // Execute code for this part.
         do_action( 'get_template_part_' . $slug, $slug, $name, $args ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
         do_action( 'the_plugin_name_get_template_part_' . $slug, $slug, $name, $args );
@@ -88,12 +85,12 @@ class Templates extends Base
      * @url https://github.com/GaryJones/Gamajo-Template-Loader
      *
      * @param string $slug Template slug.
-     * @param string $name Template variation name.
+     * @param string|null $name Template variation name.
      * @param $args
      * @return array
      * @since 1.0.0
      */
-    protected function getFileNames( $slug, $name, $args ): array {
+    protected function getFileNames(string $slug, ?string $name, $args ): array {
         $templates = [];
         if ( isset( $name ) ) {
             $templates[] = $slug . '-' . $name . '.php';
@@ -130,7 +127,7 @@ class Templates extends Base
      * @return string The template filename if one is located.
      * @since 1.0.0
      */
-    public function locate( $template_names, $load = false, $require_once = true, $args = [] ): string {
+    public function locate($template_names, bool $load = false, bool $require_once = true, array $args = [] ): string {
         // Use $template_names as a cache key - either first element of array or the variable itself if it's a string.
         $cache_key = is_array( $template_names ) ? $template_names[0] : $template_names;
         // If the key is in the cache array, we've already located this file.
