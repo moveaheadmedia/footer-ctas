@@ -4,11 +4,11 @@ Contributors: alisal
 
 Tags: ctas, buttons, Move Ahead Media, Footer buttons, UX
 
-Requires at least: 4.5.0
+Requires at least: 5.5.0
 
 Tested up to: 5.9
 
-Requires PHP: 5.6
+Requires PHP: 7.1
 
 Stable tag: 1.0
 
@@ -31,9 +31,13 @@ Add links or popups to your website footer easily.
 footer_ctas()->get_status(); // Enabled or Disabled
 footer_ctas()->get_toggle_icon(); // the icon html
 footer_ctas()->get_items(); // array of all the buttons information
-footer_ctas()->get_bg_color(); // background color code
-footer_ctas()->get_color(); // text color code
-footer_ctas()->get_position(); // array ex: ['top' => 'auto', 'left' => '15px','bottom' => '15px', 'right' => 'auto']
+footer_ctas()->get_position(); // Bottom Left or Bottom Right
+footer_ctas()->get_bottom(); // 15px default or from the option page
+footer_ctas()->get_left(); // 15px default or from the option page
+footer_ctas()->get_right(); // 15px default or from the option page
+footer_ctas()->get_color(); // #FFFFFF default or from the option page
+footer_ctas()->get_bg_color(); // #000000 default or from the option page
+
 
 ?>
 ```
