@@ -16,8 +16,8 @@
  * Author URI:      https://moveaheadmedia.com
  * Text Domain:     footer-ctas
  * Domain Path:     /languages
- * Requires PHP:    5.6
- * Requires WP:     4.5.0
+ * Requires PHP:    7.1
+ * Requires WP:     5.5.0
  * Namespace:       FooterCtas
  */
 
