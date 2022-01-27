@@ -42,31 +42,11 @@ class Shortcodes extends Base {
 	/**
 	 * [mam-footer-ctas]
 	 *
-	 * @param array $atts Parameters.
 	 * @return string
 	 * @since 1.0.0
 	 */
-	public function footer_ctas( array $atts ): string {
-        if(get_field('mam_footer_ctas_enabled', 'option') == 'Disabled'){
-            return '';
-        }
+	public function footer_ctas(): string {
         // init data
-        $toggle_icon = get_field('mam_footer_ctas_toggle_button_icon', 'option');
-        $ctas = array();
-        if( have_rows('mam_footer_ctas') ) {
-            // Loop through rows.
-            while( have_rows('mam_footer_ctas') ) {
-                the_row();
-                $item = array();
-                $item['icon'] = get_sub_field('icon');
-                $item['text'] = get_sub_field('text');
-                $item['popup'] = get_sub_field('popup');
-                $item['link'] = get_sub_field('link');
-                $item['popup_content'] = get_sub_field('popup_content');
-                $ctas[] = $item;
-            }
-        }
-        return '';
-
+        return footer_ctas()->templates()->get('mam-footer-cta', 'template');
     }
 }
