@@ -38,7 +38,48 @@ class Enqueue extends Base {
 		 * Add plugin code here
 		 */
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueueScripts' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'addUserStyle' ] );
+
 	}
+
+    /**
+     * Add the user styles from the plugin options
+     *
+     * @since 1.0.0
+     */
+    public function addUserStyle(){
+        $data = '
+        .mam-footer-ctas {
+            bottom: '. footer_ctas()->get_bottom() . ';
+            right: '. footer_ctas()->get_right() . ';
+            left: '. footer_ctas()->get_left() . ';
+        }
+        a.mam-footer-ctas-toggle {
+            background-color: '. footer_ctas()->get_bg_color() . ';
+            color: '. footer_ctas()->get_color() . ';
+        }
+        .mam-footer-ctas-content {
+            background-color: '. footer_ctas()->get_bg_color() . ';
+        }
+        .mam-footer-ctas-item-link {
+            color: '. footer_ctas()->get_color() . ';
+        }
+        ';
+        if(footer_ctas()->get_position() == 'Bottom Left'){
+            $data .= '
+            .mam-footer-ctas-item-title {
+                left: 40px;
+            }
+            ';
+        }else{
+            $data .= '
+            .mam-footer-ctas-item-title {
+                right: 40px;
+            }
+            ';
+        }
+        wp_add_inline_style( 'footer-ctas-frontend-css', $data );
+    }
 
 	/**
 	 * Enqueue scripts function
@@ -65,7 +106,7 @@ class Enqueue extends Base {
                 ],
                 [
                     'deps'    => [],
-                    'handle'  => 'plugin-name-frontend-css',
+                    'handle'  => 'footer-ctas-frontend-css',
                     'media'   => 'all',
                     'source'  => plugins_url( '/assets/public/css/frontend.css', FOOTER_CTAS_PLUGIN_FILE ), // phpcs:disable ImportDetection.Imports.RequireImports.Symbol -- this constant is global
                     'version' => $this->plugin->version(),
