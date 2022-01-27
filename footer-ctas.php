@@ -5,19 +5,19 @@
  * @package   footer-ctas
  * @author    Move Ahead Media <ali@moveaheadmedia.co.uk>
  * @copyright 2022 Footer CTAs
- * @license   MIT
- * @link      https://moveaheadmedia.com
+ * @license   GPLv2
+ * @link      https://github.com/moveaheadmedia/footer-ctas/
  *
  * Plugin Name:     Footer CTAs
- * Plugin URI:      https://moveaheadmedia.com
+ * Plugin URI:      https://github.com/moveaheadmedia/footer-ctas/
  * Description:     Adds footer CTAs to your website, Require ACF Pro
  * Version:         1.0.0
  * Author:          Move Ahead Media
  * Author URI:      https://moveaheadmedia.com
  * Text Domain:     footer-ctas
  * Domain Path:     /languages
- * Requires PHP:    7.1
- * Requires WP:     5.5.0
+ * Requires PHP:    5.6
+ * Requires WP:     4.5.0
  * Namespace:       FooterCtas
  */
 
