@@ -17,10 +17,10 @@
                     "id": ""
                 },
                 "choices": {
-                    "Enabled": "Enabled",
-                    "Disabled": "Disabled"
+                    "Disabled": "Disabled",
+                    "Enabled": "Enabled"
                 },
-                "default_value": false,
+                "default_value": "Disabled",
                 "allow_null": 0,
                 "multiple": 0,
                 "ui": 0,
@@ -35,15 +35,7 @@
                 "type": "text",
                 "instructions": "<a href=\"https:\/\/fontawesome.com\/icons\/\" target=\"_blank\">Find icons here<\/a> Ex: &lt;i class=&quot;fas fa-comments&quot;&gt;&lt;\/i&gt;",
                 "required": 0,
-                "conditional_logic": [
-                    [
-                        {
-                            "field": "field_61efb0f78b4fa",
-                            "operator": "==",
-                            "value": "Enabled"
-                        }
-                    ]
-                ],
+                "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",
@@ -56,21 +48,168 @@
                 "maxlength": ""
             },
             {
+                "key": "field_61f2544b6d7d5",
+                "label": "Style",
+                "name": "mam_footer_style",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "sub_fields": [
+                    {
+                        "key": "field_61f254606d7d6",
+                        "label": "Position",
+                        "name": "mam_footer_position",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "Bottom Left": "Bottom Left",
+                            "Bottom Right": "Bottom Right"
+                        },
+                        "default_value": false,
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_61f2546c6d7d7",
+                        "label": "Bottom",
+                        "name": "mam_footer_bottom",
+                        "type": "number",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": 15,
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "min": "",
+                        "max": "",
+                        "step": ""
+                    },
+                    {
+                        "key": "field_61f254786d7d8",
+                        "label": "Left",
+                        "name": "mam_footer_left",
+                        "type": "number",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_61f254606d7d6",
+                                    "operator": "==",
+                                    "value": "Bottom Left"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": 15,
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "min": "",
+                        "max": "",
+                        "step": ""
+                    },
+                    {
+                        "key": "field_61f2550ba8e4b",
+                        "label": "Right",
+                        "name": "mam_footer_right",
+                        "type": "number",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_61f254606d7d6",
+                                    "operator": "==",
+                                    "value": "Bottom Right"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": 15,
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "min": "",
+                        "max": "",
+                        "step": ""
+                    },
+                    {
+                        "key": "field_61f254afd243f",
+                        "label": "Color",
+                        "name": "mam_footer_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "#FFFFFF",
+                        "enable_opacity": 0,
+                        "return_format": "string"
+                    },
+                    {
+                        "key": "field_61f254b7d2440",
+                        "label": "Background Color",
+                        "name": "mam_footer_background_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "#000000",
+                        "enable_opacity": 0,
+                        "return_format": "string"
+                    }
+                ]
+            },
+            {
                 "key": "field_61efb1ffeab7d",
                 "label": "CTAs",
                 "name": "mam_footer_ctas",
                 "type": "repeater",
                 "instructions": "",
                 "required": 0,
-                "conditional_logic": [
-                    [
-                        {
-                            "field": "field_61efb0f78b4fa",
-                            "operator": "==",
-                            "value": "Enabled"
-                        }
-                    ]
-                ],
+                "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",

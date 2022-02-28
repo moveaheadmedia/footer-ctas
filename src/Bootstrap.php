@@ -52,7 +52,6 @@ final class Bootstrap extends Base {
 	/**
 	 * Composer autoload file list
 	 *
-	 * @var Composer\Autoload\ClassLoader
 	 */
 	public $composer;
 
