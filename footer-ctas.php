@@ -11,7 +11,7 @@
  * Plugin Name:     Footer CTAs
  * Plugin URI:      https://github.com/moveaheadmedia/footer-ctas/
  * Description:     Adds footer CTAs to your website, Require ACF Pro
- * Version:         1.0.1
+ * Version:         1.0.0
  * Author:          Move Ahead Media
  * Author URI:      https://moveaheadmedia.com
  * Text Domain:     footer-ctas
