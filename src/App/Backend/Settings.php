@@ -59,10 +59,9 @@ class Settings extends Base
 
     public function add_option_page_acf()
     {
-        if (function_exists('acf_add_local_field_group')) :
-            $acf = json_decode(file_get_contents(plugins_url('/assets/admin/acf.json', FOOTER_CTAS_PLUGIN_FILE)), true);
+        if (function_exists('acf_add_local_field_group')) {
+            $acf = json_decode(file_get_contents(plugin_dir_path(FOOTER_CTAS_PLUGIN_FILE) . '/assets/admin/acf.json'), true);
             acf_add_local_field_group($acf[0]);
-
-        endif;
+        }
     }
 }
